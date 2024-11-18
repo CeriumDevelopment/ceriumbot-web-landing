@@ -5,7 +5,7 @@ import { PiConfettiBold } from "react-icons/pi";
 
 const Tools = () => {
   return (
-    <section className="my-20 flex flex-col gap-10">
+    <section id="features" className="my-20 flex flex-col gap-10">
       <div className="text-center flex flex-col gap-5">
         <div className="tag w-max m-auto p-1 px-3 text-gray-500 text-sm">
           FEATURES
@@ -15,7 +15,7 @@ const Tools = () => {
           From moderation to community support, we've got you covered
         </p>
       </div>
-      <div className="flex flex-row gap-5">
+      <div className="flex flex-col sm:flex-row gap-5">
         <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <GrSecure size={30} />

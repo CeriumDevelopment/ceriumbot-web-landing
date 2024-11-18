@@ -12,6 +12,11 @@ nav,
   border-radius: 24px;
 }
 
+.tag-blue {
+  background: rgba(0, 0, 255, 0.1);
+  border-radius: 24px;
+}
+
 .link {
   color: #d1d5db;
   transition: all 0.3s;
@@ -39,4 +44,23 @@ nav,
     rgba(6, 6, 79, 0.3) 50%,
     rgba(3, 7, 18, 1) 80%
   );
+}
+
+nav > ul {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  nav > ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.035);
+    border-radius: 24px;
+    padding: 12px;
+  }
 }

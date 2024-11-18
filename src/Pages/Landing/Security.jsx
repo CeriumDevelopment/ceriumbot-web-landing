@@ -12,7 +12,7 @@ const Security = () => {
           Advanced security and permission management for ultimate control
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="flex flex-col sm:grid sm:grid-cols-3 gap-5">
         <div className="flex-1 flex flex-col gap-5 rounded-3xl tag p-5 col-span-2">
           <h1 className="text-xl font-bold">Custom Permission System</h1>
           <p className="text-lg text-gray-500">
@@ -24,7 +24,7 @@ const Security = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col gap-5 rounded-3xl">
+        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag-blue p-5">
           <h1 className="text-xl font-bold">Ban and Mute Management</h1>
           <p className="text-lg text-gray-500">
             Effortlessly manage bans, mutes, and warnings with automated
@@ -33,7 +33,7 @@ const Security = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col gap-5 rounded-3xl">
+        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag-blue p-5">
           <h1 className="text-xl font-bold">Anti-Spam and Auto-Moderation</h1>
           <p className="text-lg text-gray-500">
             Protect your server from spam, bots, and inappropriate content using

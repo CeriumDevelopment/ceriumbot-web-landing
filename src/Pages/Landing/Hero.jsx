@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="my-20 p-20 tag rounded-3xl">
+    <section className="my-20 p-10 sm:p-20 tag rounded-3xl">
       <div className="flex flex-col gap-5 text-center">
         <div className="bg-gray-800 w-16 h-16 flex justify-center items-center m-auto text-white rounded-3xl text-2xl font-bold">
           Ce
