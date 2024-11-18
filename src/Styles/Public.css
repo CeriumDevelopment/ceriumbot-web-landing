@@ -1,7 +1,38 @@
 body {
-    background-color: #00040dea;
+  background-color: #030712;
 }
 
 * {
-    color: white;
+  color: white;
+}
+
+nav,
+.tag {
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.link {
+  color: #d1d5db;
+  transition: all 0.3s;
+}
+.link:hover {
+  color: white;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  padding: 7px 20px;
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background-color: #e7e7e7;
+}
+
+.btn.outline {
+  background-color: transparent !important;
+  color: white !important;
 }
