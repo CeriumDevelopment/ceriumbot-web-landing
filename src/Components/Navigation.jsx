@@ -2,7 +2,7 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <nav className="m-auto w-max flex flex-row gap-5 p-3 pl-5 rounded-full items-center relative">
+    <nav className="m-auto w-full justify-between flex flex-row gap-5 p-3 pl-5 rounded-full items-center relative">
       <a href="/" className="text-2xl font-bold">
         <span className="text-blue-900">Cerium</span> Bot
       </a>
