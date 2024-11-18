@@ -9,8 +9,7 @@ body {
 nav,
 .tag {
   background: rgba(255, 255, 255, 0.035);
-  border-radius: 16px;
-  backdrop-filter: blur(5px);
+  border-radius: 24px;
 }
 
 .link {
@@ -32,7 +31,12 @@ nav,
   background-color: #e7e7e7;
 }
 
-.btn.outline {
-  background-color: transparent !important;
-  color: white !important;
+.bg-header {
+  background: rgb(3, 7, 18);
+  background: linear-gradient(
+    350deg,
+    rgba(3, 7, 18, 1) 20%,
+    rgba(6, 6, 79, 0.3) 50%,
+    rgba(3, 7, 18, 1) 80%
+  );
 }

@@ -6,7 +6,7 @@ import { MdOutlineAddModerator } from "react-icons/md";
 
 const How = () => {
   return (
-    <section className="my-20 flex flex-col gap-10">
+    <section className="my-20 flex flex-col gap-10 relative">
       <div className="text-center flex flex-col gap-5">
         <div className="tag w-max m-auto p-1 px-3 text-gray-500 text-sm">
           HOW IT WORKS

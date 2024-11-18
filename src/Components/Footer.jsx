@@ -2,17 +2,29 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 p-5">
-      <div className="flex pb-5">
-        <h1 className="text-9xl font-bold">Cerium Bot</h1>
-      </div>
-      <div className="flex flex-row w-full justify-between pt-5 border-t text-gray-500 text-sm">
-        &copy; Copyright xFendi 2024. All rights reserved.
-        <a href="/privacy-policy" className="underline">
-          privacy policy
-        </a>
-      </div>
-    </div>
+    <footer className="flex flex-row justify-between items-center">
+      <h1 className="text-2xl font-bold">
+        <span className="text-blue-900">Cerium</span> Bot
+      </h1>
+      <ul className="flex gap-5">
+        <li>
+          <a
+            href="/contact"
+            className="text-gray-500 transition-all duration-300 hover:text-white"
+          >
+            Contact
+          </a>
+        </li>
+        <li>
+          <a
+            href="/privacy-policy"
+            className="text-gray-500 transition-all duration-300 hover:text-white"
+          >
+            Privacy Policy
+          </a>
+        </li>
+      </ul>
+    </footer>
   );
 };
 

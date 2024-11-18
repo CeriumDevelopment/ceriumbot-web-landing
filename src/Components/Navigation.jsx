@@ -4,8 +4,8 @@ const Navigation = () => {
   return (
     <nav className="m-auto flex flex-row gap-5 p-3 pl-5 rounded-full items-center">
       <div className="w-48">
-        <a href="/" className="text-xl font-semibold">
-          Cerium Bot
+        <a href="/" className="text-2xl font-bold">
+          <span className="text-blue-900">Cerium</span> Bot
         </a>
       </div>
       <ul className="flex gap-5">

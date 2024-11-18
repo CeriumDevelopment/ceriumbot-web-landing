@@ -3,6 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <header className="m-20">
+      <div className="bg-header h-screen absolute top-0 left-0 right-0 -z-10"></div>
       <div className="text-center flex flex-col gap-10">
         <h1 className="text-7xl">
           The Ultimate, All-in-One Discord Management Tool
@@ -16,8 +17,8 @@ const Header = () => {
           <a href="/" className="btn w-max m-auto">
             Add Cerium Bot to Your Server
           </a>
-          <a href="/" className="btn outline w-max m-auto">
-            View Docs
+          <a href="/" className="btn blue !bg-blue-900 !text-white w-max m-auto">
+            Open Dashboard
           </a>
         </div>
       </div>
