@@ -1,23 +1,24 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
     <nav className="m-auto w-full justify-between flex flex-row gap-5 p-3 pl-5 rounded-full items-center relative">
-      <a href="/" className="text-2xl font-bold">
+      <NavLink to="/" className="text-2xl font-bold">
         <span className="text-blue-900">Cerium</span> Bot
-      </a>
+      </NavLink>
       <ul>
         <li className="link">
-          <a href="#features">Features</a>
+          <NavLink to="#features">Features</NavLink>
         </li>
         <li className="link">
-          <a href="/about">About Us</a>
+          <NavLink to="/about">About Us</NavLink>
         </li>
         <li className="link">
-          <a href="#security">Security</a>
+          <NavLink to="#security">Security</NavLink>
         </li>
         <li className="link">
-          <a href="/contact">Contact</a>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
       </ul>
       <div className="flex justify-end">
