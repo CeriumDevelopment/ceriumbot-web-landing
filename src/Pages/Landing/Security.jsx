@@ -13,7 +13,7 @@ const Security = () => {
         </p>
       </div>
       <div className="flex flex-col sm:grid sm:grid-cols-3 gap-5">
-        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag p-5 col-span-2">
+        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag p-5 col-span-2 border border-blue-950">
           <h1 className="text-xl font-bold">Custom Permission System</h1>
           <p className="text-lg text-gray-500">
             Cerium Bot offers a comprehensive and intuitive permission system
@@ -44,7 +44,7 @@ const Security = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag p-5 col-span-2">
+        <div className="flex-1 flex flex-col gap-5 rounded-3xl tag p-5 col-span-2 border border-blue-950">
           <h1 className="text-xl font-bold">
             Two-Factor Authentication (2FA) Integration
           </h1>

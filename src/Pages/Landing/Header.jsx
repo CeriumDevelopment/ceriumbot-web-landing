@@ -1,6 +1,9 @@
 import React from "react";
 
+import config from "../../config.json";
+
 const Header = () => {
+  const { DISCORD_ADD_BOT_LINK, DISCORD_DASHBOARD_LINK } = config;
   return (
     <header className="my-20 md:mx-20">
       <div className="bg-header h-screen absolute top-0 left-0 right-0 -z-10"></div>
@@ -14,10 +17,16 @@ const Header = () => {
           Discord bot.
         </p>
         <div className="flex flex-col sm:flex-row w-max m-auto gap-5">
-          <a href="/" className="btn w-max m-auto">
+          <a
+            href={DISCORD_ADD_BOT_LINK}
+            className="btn w-max m-auto"
+          >
             Add Cerium Bot to Your Server
           </a>
-          <a href="/" className="btn blue !bg-blue-900 !text-white w-max m-auto">
+          <a
+            href={DISCORD_DASHBOARD_LINK}
+            className="btn blue !bg-blue-900 !text-white w-max m-auto"
+          >
             Open Dashboard
           </a>
         </div>

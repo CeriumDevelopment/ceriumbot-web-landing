@@ -17,7 +17,7 @@ const How = () => {
         </p>
       </div>
       <div className="flex flex-col gap-5 flex-1">
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <IoMdAddCircleOutline size={30} />
           </div>
@@ -29,7 +29,7 @@ const How = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <GrList size={30} />
           </div>
@@ -41,7 +41,7 @@ const How = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <MdOutlineAddModerator size={30} />
           </div>
