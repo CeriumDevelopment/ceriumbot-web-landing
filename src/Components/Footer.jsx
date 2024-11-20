@@ -3,9 +3,17 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="flex flex-row justify-between items-center">
-      <h1 className="text-2xl font-bold">
-        <span className="text-blue-900">Cerium</span> Bot
-      </h1>
+      <div className="text-gray-500">
+        &copy; 2024 Cerium Bot.{" "}
+        <a
+          href="https://yolocode.pl"
+          className="hover:underline transition-all duration-300 text-white hover:text-yellow-300"
+          target="_blank"
+        >
+          Yolo Solutions
+        </a>{" "}
+        All rights reserved.
+      </div>
       <ul className="flex gap-5">
         <li>
           <a
