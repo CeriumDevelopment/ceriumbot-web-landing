@@ -12,11 +12,6 @@ nav,
   border-radius: 24px;
 }
 
-.tag-blue {
-  background: rgba(0, 0, 255, 0.1);
-  border-radius: 24px;
-}
-
 .link {
   color: #d1d5db;
   transition: all 0.3s;
@@ -89,7 +84,7 @@ nav > ul {
   width: 25px;
   border-radius: 7px;
   background-color: #1e293b;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 /* On mouse-over, add a grey background color */
@@ -107,7 +102,7 @@ nav > ul {
   content: "";
   position: absolute;
   display: none;
-  transition: all .3;
+  transition: all 0.3;
 }
 
 /* Show the checkmark when checked */
