@@ -1,6 +1,9 @@
 import React from "react";
 
+import config from "../config.json";
+
 const Footer = () => {
+  const { LOGO_IMAGE_URL } = config;
   return (
     <footer className="flex flex-row justify-between items-center">
       <div className="text-gray-500">

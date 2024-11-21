@@ -4,11 +4,12 @@ import { NavLink } from "react-router-dom";
 import config from "../config.json";
 
 const Navigation = () => {
-  const { DISCORD_ADD_BOT_LINK } = config;
+  const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL } = config;
   return (
     <nav className="m-auto w-full justify-between flex flex-row gap-5 p-3 pl-5 rounded-full items-center relative border border-blue-950">
       <NavLink to="/" className="text-2xl font-bold">
-        <span className="text-blue-900">Cerium</span> Bot
+        {/* <span className="text-blue-900">Cerium</span> Bot */}
+        <img src={LOGO_IMAGE_URL} alt="cerium" className="rounded-3xl h-12" />
       </NavLink>
       <ul>
         <li className="link">
