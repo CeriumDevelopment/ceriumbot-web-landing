@@ -9,7 +9,7 @@ const Header = () => {
       <div className="bg-header h-screen absolute top-0 left-0 right-0 -z-10"></div>
       <div className="text-center flex flex-col gap-10">
         <h1 className="text-5xl sm:text-7xl">
-          The Ultimate, All-in-One Discord Management Tool
+          The Ultimate, All-in-One<br></br> Discord Management Tool
         </h1>
         <p className="text-lg text-gray-500 w-[70vw] md:w-[50vw] m-auto">
           Experience seamless server control with powerful features, advanced
@@ -18,7 +18,7 @@ const Header = () => {
         </p>
         <div className="flex flex-col sm:flex-row w-max m-auto gap-5">
           <a
-            href={DISCORD_ADD_BOT_LINK}
+            href={DISCORD_ADD_BOT_LINK} target="_blank" rel="noreferrer"
             className="btn w-max m-auto"
           >
             Add Cerium Bot to Your Server

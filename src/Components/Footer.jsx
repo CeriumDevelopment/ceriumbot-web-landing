@@ -1,17 +1,15 @@
 import React from "react";
 
-import config from "../config.json";
-
 const Footer = () => {
-  const { LOGO_IMAGE_URL } = config;
   return (
     <footer className="flex flex-row justify-between items-center">
       <div className="text-gray-500">
         &copy; 2024 Cerium Bot.{" "}
         <a
           href="https://yolocode.pl"
-          className="hover:underline transition-all duration-300 text-white hover:text-blue-900"
+          className="hover:underline transition-all duration-300 text-white hover:text-[rgb(128,172,255)]"
           target="_blank"
+          rel="noreferrer"
         >
           Yolo Solutions
         </a>{" "}

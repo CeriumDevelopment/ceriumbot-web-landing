@@ -13,12 +13,31 @@ nav,
 }
 
 .link {
+  position: relative;
+  display: inline-block;
   color: #d1d5db;
-  transition: all 0.3s;
+  transition: color 0.3s ease-in-out;
 }
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjust spacing below the text */
+  left: 0;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: #1e3a8a; /* Color of the underline */
+  transition: width 0.3s ease-in-out;
+}
+
 .link:hover {
   color: white;
 }
+
+.link:hover::after {
+  width: 100%; /* Expands underline across the text */
+}
+
 
 .btn {
   background-color: white;
@@ -27,8 +46,28 @@ nav,
   border-radius: 999px;
   transition: all 0.3s;
 }
+
 .btn:hover {
-  background-color: #e7e7e7;
+  background-color: #9c9c9c;
+}
+
+/* Hide .btn on small screens (mobile devices) */
+@media (max-width: 768px) {
+  .btn#mobileInVis {
+    display: none;
+  }
+}
+
+.loginBtn {
+  background-color: white;
+  color: black;
+  padding: 7px 20px;
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+
+.loginBtn:hover {
+  background-color: #9c9c9c;
 }
 
 .bg-header {
@@ -121,4 +160,25 @@ nav > ul {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+
+/* Default styles (desktop and larger screens) */
+footer {
+  font-size: 16px; /* Default font size for footer text */
+}
+
+footer a {
+  font-size: inherit; /* Links inherit the default font size */
+}
+
+/* Smaller font size for mobile devices */
+@media (max-width: 768px) {
+  footer {
+    font-size: 14px; /* Reduce font size for mobile screens */
+  }
+
+  footer a {
+    font-size: inherit; /* Ensure links scale with parent font size */
+  }
 }

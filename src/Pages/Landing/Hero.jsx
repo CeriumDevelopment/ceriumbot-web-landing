@@ -15,7 +15,7 @@ const Hero = () => {
           Automate moderation, grow your community, and have more fun with
           premium features – all in one bot!
         </p>
-        <a href={DISCORD_ADD_BOT_LINK} className="btn w-max m-auto">
+        <a href={DISCORD_ADD_BOT_LINK} target="_blank" rel="noreferrer" className="btn w-max m-auto">
           Add Cerium Bot to Your Server
         </a>
       </div>
