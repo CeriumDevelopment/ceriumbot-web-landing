@@ -10,7 +10,7 @@ const Footer = () => {
         &copy; 2024 Cerium Bot.{" "}
         <a
           href="https://yolocode.pl"
-          className="hover:underline transition-all duration-300 text-white hover:text-yellow-300"
+          className="hover:underline transition-all duration-300 text-white hover:text-blue-900"
           target="_blank"
         >
           Yolo Solutions
