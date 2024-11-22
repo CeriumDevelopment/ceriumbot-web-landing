@@ -74,6 +74,7 @@ const Navigation = () => {
         className={`
           gap-5
           transition-all duration-300
+          ${width >= 1100 && "absolute left-1/2 -translate-x-1/2"}
           ${
             width <= 768
               ? `absolute left-0 right-0 pointer-events-none top-[100%] justify-center items-center flex flex-col border border-blue-950 ${
