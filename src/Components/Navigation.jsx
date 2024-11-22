@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
 import config from "../config.json";
@@ -6,9 +6,28 @@ import config from "../config.json";
 const Navigation = () => {
   const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL } = config;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  if (width < 500) {
+    console.log("Hamburger menu toggled");
+  }
 
   return (
-    <nav className="m-auto w-full flex flex-row justify-between items-center gap-5 p-3 pl-5 rounded-full relative border border-[#030617]">
+    <nav className="bg-gray-900 m-auto w-full flex flex-row justify-between items-center gap-5 py-1 px-3 rounded-full relative border border-blue-950">
       {/* Logo */}
       <NavLink to="/" className="text-2xl font-bold">
         <img src={LOGO_IMAGE_URL} alt="cerium" className="rounded-3xl h-12" />
@@ -16,65 +35,82 @@ const Navigation = () => {
 
       {/* Hamburger Menu Toggle */}
       <button
-        className="block md:hidden text-white"
+        className="flex text-white md:hidden"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <svg
-          className="w-8 h-8"
+          className={`w-8 h-8 transition-transform duration-300 ${
+            menuOpen ? "rotate-90" : "rotate-0"
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            className={`transition-all duration-300 ease-in-out ${
+              menuOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
+            }`}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path
+            className={`absolute transition-all duration-300 ease-in-out ${
+              menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            }`}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
           />
         </svg>
       </button>
 
       {/* Links and Buttons */}
       <ul
-        className={`absolute md:static top-16 right-5 bg-gray-900 md:bg-transparent md:flex md:items-center md:space-x-5 p-5 md:p-0 rounded-lg md:rounded-none space-y-4 md:space-y-0 ${
-          menuOpen ? "block border border-white/50 w-full left-0" : "hidden"
-        }`}
+        ref={menuRef}
+        className={`
+          gap-5
+          transition-all duration-300
+          ${
+            width <= 768
+              ? `absolute left-0 right-0 pointer-events-none top-[100%] justify-center items-center flex flex-col border border-blue-950 ${
+                  !menuOpen && "opacity-0"
+                }`
+              : "flex"
+          }
+         ${
+           menuOpen &&
+           width <= 768 &&
+           "bg-gray-900 rounded-3xl p-5 opacity-1 pointer-events-auto top-[calc(100%+20px)]"
+         }
+        `}
       >
         <li className="link">
-          <NavLink to="/" className="block py-2 px-4 text-white hover:text-blue-400">
-            Home
-          </NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li className="link">
-          <NavLink to="#features" className="block py-2 px-4 text-white hover:text-blue-400">
-            Features
-          </NavLink>
+          <NavLink to="#features">Features</NavLink>
         </li>
         <li className="link">
-          <NavLink to="/about" className="block py-2 px-4 text-white hover:text-blue-400">
-            About Us
-          </NavLink>
+          <NavLink to="/about">About Us</NavLink>
         </li>
         <li className="link">
-          <NavLink to="/contact" className="block py-2 px-4 text-white hover:text-blue-400">
-            Contact
-          </NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
 
         {/* Mobile Version: Add to Discord and Login Buttons in flex layout */}
-        <li className="md:hidden flex justify-between w-full items-center">
-          <NavLink
-            to="/login"
-            className="loginBtn block py-2 px-4 text-white"
-          >
+        <li className="md:hidden flex gap-3">
+          <NavLink to="/login" className="btn block py-2 px-4">
             Login
           </NavLink>
           <a
             href={DISCORD_ADD_BOT_LINK}
             target="_blank"
             rel="noreferrer"
-            className="btn block py-2 px-4 text-white"
+            className="btn block py-2 px-4"
           >
             Add to discord
           </a>
@@ -83,14 +119,14 @@ const Navigation = () => {
 
       {/* Desktop Version: Add to Discord and Login (adjusted gap) */}
       <div className="hidden md:flex gap-3">
-        <NavLink to="/login" className="loginBtn py-2 px-4 text-white">
+        <NavLink to="/login" className="btn py-2 px-4 w-max">
           Login
         </NavLink>
         <a
           href={DISCORD_ADD_BOT_LINK}
           target="_blank"
           rel="noreferrer"
-          className="btn py-2 px-4 text-white"
+          className="btn py-2 px-4 w-max"
         >
           Add to discord
         </a>

@@ -6,7 +6,6 @@ body {
   color: white;
 }
 
-nav,
 .tag {
   background: rgba(255, 255, 255, 0.035);
   border-radius: 24px;
@@ -14,9 +13,9 @@ nav,
 
 .link {
   position: relative;
-  display: inline-block;
-  color: #d1d5db;
-  transition: color 0.3s ease-in-out;
+  color: white;
+  transition: all .3s;
+  width: max-content;
 }
 
 .link::after {
@@ -27,17 +26,15 @@ nav,
   width: 0;
   height: 2px; /* Thickness of the underline */
   background-color: #1e3a8a; /* Color of the underline */
-  transition: width 0.3s ease-in-out;
+  transition: all .3s;
 }
 
 .link:hover {
-  color: white;
+  color: #1e3a8a;
 }
-
 .link:hover::after {
   width: 100%; /* Expands underline across the text */
 }
-
 
 .btn {
   background-color: white;
@@ -48,26 +45,7 @@ nav,
 }
 
 .btn:hover {
-  background-color: #9c9c9c;
-}
-
-/* Hide .btn on small screens (mobile devices) */
-@media (max-width: 768px) {
-  .btn#mobileInVis {
-    display: none;
-  }
-}
-
-.loginBtn {
-  background-color: white;
-  color: black;
-  padding: 7px 20px;
-  border-radius: 999px;
-  transition: all 0.3s;
-}
-
-.loginBtn:hover {
-  background-color: #9c9c9c;
+  background-color: #d1d5db;
 }
 
 .bg-header {
@@ -78,25 +56,6 @@ nav,
     rgba(6, 6, 79, 0.3) 50%,
     rgba(3, 7, 18, 1) 80%
   );
-}
-
-nav > ul {
-  display: flex;
-  gap: 20px;
-}
-
-@media (max-width: 1024px) {
-  nav > ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    justify-content: center;
-    margin-top: 20px;
-    background: rgba(255, 255, 255, 0.035);
-    border-radius: 24px;
-    padding: 12px;
-  }
 }
 
 /* Customize the label (the container) */
@@ -160,25 +119,4 @@ nav > ul {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-}
-
-
-/* Default styles (desktop and larger screens) */
-footer {
-  font-size: 16px; /* Default font size for footer text */
-}
-
-footer a {
-  font-size: inherit; /* Links inherit the default font size */
-}
-
-/* Smaller font size for mobile devices */
-@media (max-width: 768px) {
-  footer {
-    font-size: 14px; /* Reduce font size for mobile screens */
-  }
-
-  footer a {
-    font-size: inherit; /* Ensure links scale with parent font size */
-  }
 }
