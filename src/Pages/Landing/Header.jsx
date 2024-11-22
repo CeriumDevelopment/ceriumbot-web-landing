@@ -13,22 +13,31 @@ const Header = () => {
         </h1>
         <p className="text-lg text-gray-500 w-[70vw] md:w-[50vw] m-auto">
           Experience seamless server control with powerful features, advanced
-          customization, and complete security—all in one easy-to-use, free
+          customization, and complete security-all in one easy-to-use, free
           Discord bot.
         </p>
         <div className="flex flex-col sm:flex-row w-max m-auto gap-5">
-          <a
-            href={DISCORD_ADD_BOT_LINK} target="_blank" rel="noreferrer"
-            className="btn w-max m-auto"
-          >
-            Add Cerium Bot to Your Server
-          </a>
-          <a
+        <a
             href={DISCORD_DASHBOARD_LINK}
-            className="btn blue !bg-blue-900 !text-white w-max m-auto"
+            className="btn w-max m-auto"
           >
             Open Dashboard
           </a>
+
+        <a
+          href={DISCORD_ADD_BOT_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
+        >
+          <img
+            src="https://i.imgur.com/wpTEYKd.png"
+            alt="Discord logo"
+            className="w-5 h-5 mt-0.5"
+          />
+          <span>Add Cerium Bot to Your Server</span>
+        </a>
+          
         </div>
       </div>
     </header>

@@ -105,7 +105,7 @@ const Navigation = () => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
 
-        {/* Mobile Version: Add to Discord and Login Buttons in flex layout */}
+        {/* Mobile Version: Add to Discord and Login Buttons */}
         <li className="md:hidden flex gap-3">
           <NavLink to="/login" className="btn block py-2 px-4">
             Login
@@ -114,19 +114,19 @@ const Navigation = () => {
             href={DISCORD_ADD_BOT_LINK}
             target="_blank"
             rel="noreferrer"
-            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200 flex items-center gap-2"
+            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
           >
             <img
               src="https://i.imgur.com/wpTEYKd.png"
               alt="Discord logo"
-              className="w-5 h-5 mt-1" /* Adjusted vertical position up */
+              className="w-5 h-5 mt-0.5"
             />
-            Add to discord
+            <span>Add to discord</span>
           </a>
         </li>
       </ul>
 
-      {/* Desktop Version: Add to Discord and Login (adjusted gap) */}
+      {/* Desktop Version: Add to Discord and Login */}
       <div className="hidden md:flex gap-3">
         <NavLink to="/login" className="btn py-2 px-4 w-max">
           Login
@@ -135,14 +135,13 @@ const Navigation = () => {
           href={DISCORD_ADD_BOT_LINK}
           target="_blank"
           rel="noreferrer"
-          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center gap-2"
-        >
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2">
           <img
             src="https://i.imgur.com/wpTEYKd.png"
             alt="Discord logo"
-            className="w-5 h-5 mt-1" /* Adjusted vertical position up */
+            className="w-5 h-5 mt-0.5"
           />
-          Add to discord
+          <span>Add to discord</span>
         </a>
       </div>
     </nav>

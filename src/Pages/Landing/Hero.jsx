@@ -12,11 +12,20 @@ const Hero = () => {
         </div>
         <h1 className="text-5xl">Your All-in-One Discord Assistant!</h1>
         <p className="text-lg text-gray-500">
-          Automate moderation, grow your community, and have more fun with
-          premium features – all in one bot!
+          Automate moderation, grow your community and have fun - all for free!
         </p>
-        <a href={DISCORD_ADD_BOT_LINK} target="_blank" rel="noreferrer" className="btn w-max m-auto">
-          Add Cerium Bot to Your Server
+        <a
+          href={DISCORD_ADD_BOT_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max m-auto hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
+        >
+          <img
+            src="https://i.imgur.com/wpTEYKd.png"
+            alt="Discord logo"
+            className="w-5 h-5 mt-0.5"
+          />
+          <span>Add Cerium Bot to Your Server</span>
         </a>
       </div>
     </section>

@@ -16,7 +16,7 @@ const Tools = () => {
         </p>
       </div>
       <div className="flex flex-col sm:flex-row gap-5">
-        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <GrSecure size={30} />
           </div>
@@ -29,7 +29,7 @@ const Tools = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <GrList size={30} />
           </div>
@@ -40,7 +40,7 @@ const Tools = () => {
           </p>
         </div>
 
-        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <PiConfettiBold size={30} />
           </div>

@@ -17,7 +17,7 @@ const How = () => {
         </p>
       </div>
       <div className="flex flex-col gap-5 flex-1">
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <IoMdAddCircleOutline size={30} />
           </div>
@@ -29,19 +29,19 @@ const How = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <GrList size={30} />
           </div>
           <div className="flex flex-col gap-2 w-11/12">
-            <h1 className="text-xl font-bold">Configure Permissions</h1>
+            <h1 className="text-xl font-bold">Login To The Dashboard</h1>
             <p className="text-lg text-gray-500">
-              Set up custom permissions for users and roles.
+              Log in to the dashboard to manage the bot.
             </p>
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl cursor-pointer hover:scale-[1.03] transition-all duration-300 border border-blue-950">
+        <div className="flex-1 flex flex-col sm:flex-row gap-5 tag p-5 rounded-3xl hover:scale-[1.03] transition-all duration-300 border border-blue-950 hover:border-blue-800">
           <div className="bg-gray-800 w-16 h-16 flex justify-center items-center rounded-3xl">
             <MdOutlineAddModerator size={30} />
           </div>
