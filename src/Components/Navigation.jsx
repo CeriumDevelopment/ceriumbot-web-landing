@@ -114,8 +114,13 @@ const Navigation = () => {
             href={DISCORD_ADD_BOT_LINK}
             target="_blank"
             rel="noreferrer"
-            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200"
+            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200 flex items-center gap-2"
           >
+            <img
+              src="https://i.imgur.com/wpTEYKd.png"
+              alt="Discord logo"
+              className="w-5 h-5 mt-1" /* Adjusted vertical position up */
+            />
             Add to discord
           </a>
         </li>
@@ -130,8 +135,13 @@ const Navigation = () => {
           href={DISCORD_ADD_BOT_LINK}
           target="_blank"
           rel="noreferrer"
-          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200"
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center gap-2"
         >
+          <img
+            src="https://i.imgur.com/wpTEYKd.png"
+            alt="Discord logo"
+            className="w-5 h-5 mt-1" /* Adjusted vertical position up */
+          />
           Add to discord
         </a>
       </div>
