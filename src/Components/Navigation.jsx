@@ -93,10 +93,13 @@ const Navigation = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         <li className="link">
-          <NavLink to="#features">Features</NavLink>
+          <NavLink to="/features">Features</NavLink>
         </li>
         <li className="link">
           <NavLink to="/about">About Us</NavLink>
+        </li>
+        <li className="link">
+          <NavLink to="/security">Security</NavLink>
         </li>
         <li className="link">
           <NavLink to="/contact">Contact</NavLink>
@@ -111,7 +114,7 @@ const Navigation = () => {
             href={DISCORD_ADD_BOT_LINK}
             target="_blank"
             rel="noreferrer"
-            className="btn block py-2 px-4"
+            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200"
           >
             Add to discord
           </a>
@@ -127,7 +130,7 @@ const Navigation = () => {
           href={DISCORD_ADD_BOT_LINK}
           target="_blank"
           rel="noreferrer"
-          className="btn py-2 px-4 w-max"
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200"
         >
           Add to discord
         </a>
