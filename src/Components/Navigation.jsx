@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import config from "../config.json";
 
 const Navigation = () => {
-  const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL } = config;
+  const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL, DISCORD_AUTH_URL } = config;
   const [menuOpen, setMenuOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -22,9 +22,14 @@ const Navigation = () => {
     };
   }, []);
 
-  if (width < 500) {
-    console.log("Hamburger menu toggled");
-  }
+  
+    const handleLogin = () => {
+      window.location.href = DISCORD_AUTH_URL;
+    };
+
+    const addBot = () => {
+      window.location.href = DISCORD_ADD_BOT_LINK;
+    };
 
   return (
     <nav className="bg-gray-900 m-auto w-full flex flex-row justify-between items-center gap-5 py-1 px-3 rounded-full relative border border-blue-950">
@@ -71,23 +76,19 @@ const Navigation = () => {
       {/* Links and Buttons */}
       <ul
         ref={menuRef}
-        className={`
-          gap-5
-          transition-all duration-300
-          ${width >= 1100 && "absolute left-1/2 -translate-x-1/2"}
-          ${
-            width <= 768
-              ? `absolute left-0 right-0 pointer-events-none top-[100%] justify-center items-center flex flex-col border border-blue-950 ${
-                  !menuOpen && "opacity-0"
-                }`
-              : "flex"
-          }
-         ${
-           menuOpen &&
-           width <= 768 &&
-           "bg-gray-900 rounded-3xl p-5 opacity-1 pointer-events-auto top-[calc(100%+20px)]"
-         }
-        `}
+        className={`gap-5 transition-all duration-300 ${
+          width >= 1100 && "absolute left-1/2 -translate-x-1/2"
+        } ${
+          width <= 768
+            ? `absolute left-0 right-0 pointer-events-none top-[100%] justify-center items-center flex flex-col border border-blue-950 ${
+                !menuOpen && "opacity-0"
+              }`
+            : "flex"
+        } ${
+          menuOpen &&
+          width <= 768 &&
+          "bg-gray-900 rounded-3xl p-5 opacity-1 pointer-events-auto top-[calc(100%+20px)]"
+        }`}
       >
         <li className="link">
           <NavLink to="/">Home</NavLink>
@@ -107,11 +108,11 @@ const Navigation = () => {
 
         {/* Mobile Version: Add to Discord and Login Buttons */}
         <li className="md:hidden flex gap-3">
-          <NavLink to="/login" className="btn block py-2 px-4">
+          <button onClick={handleLogin} className="btn block py-2 px-4">
             Login
-          </NavLink>
-          <a
-            href={DISCORD_ADD_BOT_LINK}
+          </button>
+          <button
+            onClick={addBot}
             target="_blank"
             rel="noreferrer"
             className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
@@ -122,27 +123,28 @@ const Navigation = () => {
               className="w-5 h-5 mt-0.5"
             />
             <span>Add to discord</span>
-          </a>
+          </button>
         </li>
       </ul>
 
       {/* Desktop Version: Add to Discord and Login */}
       <div className="hidden md:flex gap-3">
-        <NavLink to="/login" className="btn py-2 px-4 w-max">
+        <button onClick={handleLogin} className="btn py-2 px-4 w-max">
           Login
-        </NavLink>
-        <a
-          href={DISCORD_ADD_BOT_LINK}
+        </button>
+        <button
+          onClick={addBot}
           target="_blank"
           rel="noreferrer"
-          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2">
+          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
+        >
           <img
             src="https://i.imgur.com/wpTEYKd.png"
             alt="Discord logo"
             className="w-5 h-5 mt-0.5"
           />
           <span>Add to discord</span>
-        </a>
+        </button>
       </div>
     </nav>
   );
