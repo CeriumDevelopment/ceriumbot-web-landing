@@ -120,3 +120,20 @@ body {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+
+/* Spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey background */
+  border-top: 8px solid #3498db; /* Blue color for the spinner */
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  animation: spin 1s linear infinite; /* Spins infinitely */
+}
+
