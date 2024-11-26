@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
 import config from "../config.json";
 
 const Navigation = () => {
-  const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL, DISCORD_AUTH_URL } = config;
+  const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL, DISCORD_AUTH_URL, DISCORD_AUTH_INFO } = config;
   const [menuOpen, setMenuOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-
+  const [user, setUser] = useState(null);
   const menuRef = useRef(null);
 
+  // Handle screen resize
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -22,14 +23,27 @@ const Navigation = () => {
     };
   }, []);
 
-  
-    const handleLogin = () => {
-      window.location.href = DISCORD_AUTH_URL;
-    };
+  // Fetch user data
+  useEffect(() => {
+    axios
+      .get(`${DISCORD_AUTH_INFO}/auth/me`, { withCredentials: true })
+      .then((response) => {
+        if (response.data.success) {
+          setUser(response.data.user);
+        }
+      })
+      .catch(() => {
+        setUser(null); // Reset user on failure
+      });
+  }, );
 
-    const addBot = () => {
-      window.location.href = DISCORD_ADD_BOT_LINK;
-    };
+  const handleLogin = () => {
+    window.location.href = DISCORD_AUTH_URL;
+  };
+
+  const addBot = () => {
+    window.location.href = DISCORD_ADD_BOT_LINK;
+  };
 
   return (
     <nav className="bg-gray-900 m-auto w-full flex flex-row justify-between items-center gap-5 py-1 px-3 rounded-full relative border border-blue-950">
@@ -38,45 +52,65 @@ const Navigation = () => {
         <img src={LOGO_IMAGE_URL} alt="cerium" className="rounded-3xl h-12" />
       </NavLink>
 
-      {/* Hamburger Menu Toggle */}
-      <button
-        className="flex text-white md:hidden"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <svg
-          className={`w-8 h-8 transition-transform duration-300 ${
-            menuOpen ? "rotate-90" : "rotate-0"
-          }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+      {/* Mobile Buttons (Hamburger, Login, Add to Discord) */}
+      <div className="flex items-center gap-3 md:hidden">
+        {/* Hamburger Menu Toggle */}
+        <button
+          className="flex text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <path
-            className={`transition-all duration-300 ease-in-out ${
-              menuOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
+          <svg
+            className={`w-8 h-8 transition-transform duration-300 ${
+              menuOpen ? "rotate-90" : "rotate-0"
             }`}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              className={`transition-all duration-300 ease-in-out ${
+                menuOpen ? "opacity-0 scale-90" : "opacity-100 scale-100"
+              }`}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+            <path
+              className={`absolute transition-all duration-300 ease-in-out ${
+                menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              }`}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        
+
+        {/* Login Button */}
+        {user ? (
+          <img
+            src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
+            alt="User Avatar"
+            className="w-8 h-8 rounded-full border border-gray-500 cursor-pointer"
           />
-          <path
-            className={`absolute transition-all duration-300 ease-in-out ${
-              menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-90"
-            }`}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+        ) : (
+          <button onClick={handleLogin} className="btn py-2 px-3">
+            Login
+          </button>
+        )}
+
+      </div>
+      
 
       {/* Links and Buttons */}
       <ul
         ref={menuRef}
-        className={`gap-5 transition-all duration-300 ${
+        className={`gap-5 transition-all duration-300 items-center ${
           width >= 1100 && "absolute left-1/2 -translate-x-1/2"
         } ${
           width <= 768
@@ -105,46 +139,38 @@ const Navigation = () => {
         <li className="link">
           <NavLink to="/contact">Contact</NavLink>
         </li>
-
-        {/* Mobile Version: Add to Discord and Login Buttons */}
-        <li className="md:hidden flex gap-3">
-          <button onClick={handleLogin} className="btn block py-2 px-4">
-            Login
-          </button>
-          <button
-            onClick={addBot}
-            target="_blank"
-            rel="noreferrer"
-            className="btn blue !bg-blue-900 !text-white block py-2 px-4 hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
-          >
-            <img
-              src="https://i.imgur.com/wpTEYKd.png"
-              alt="Discord logo"
-              className="w-5 h-5 mt-0.5"
-            />
-            <span>Add to discord</span>
-          </button>
-        </li>
-      </ul>
-
-      {/* Desktop Version: Add to Discord and Login */}
-      <div className="hidden md:flex gap-3">
-        <button onClick={handleLogin} className="btn py-2 px-4 w-max">
-          Login
-        </button>
         <button
           onClick={addBot}
           target="_blank"
           rel="noreferrer"
-          className="btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 flex items-center justify-center gap-2"
+          className={`btn blue !bg-blue-900 !text-white py-2 px-4 w-max hover:!bg-blue-950 transition-colors duration-200 ${width <= 768 ? "flex" : "hidden"} items-center justify-center gap-2`}
         >
           <img
             src="https://i.imgur.com/wpTEYKd.png"
             alt="Discord logo"
             className="w-5 h-5 mt-0.5"
           />
-          <span>Add to discord</span>
+          <span>Add to Discord</span>
         </button>
+        
+
+      </ul>
+
+      {/* Desktop Buttons */}
+      <div className="hidden md:flex gap-3">
+        
+      
+        {user ? (
+          <img
+            src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
+            alt="User Avatar"
+            className="w-10 h-10 rounded-full border border-gray-500 cursor-pointer"
+          />
+        ) : (
+          <button onClick={handleLogin} className="btn py-2 px-4 w-max">
+            Login
+          </button>
+        )}
       </div>
     </nav>
   );
