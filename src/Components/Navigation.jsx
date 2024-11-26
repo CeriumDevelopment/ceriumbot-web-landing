@@ -35,7 +35,7 @@ const Navigation = () => {
       .catch(() => {
         setUser(null); // Reset user on failure
       });
-  }, );
+  }, []);
 
   const handleLogin = () => {
     window.location.href = DISCORD_AUTH_URL;
@@ -89,23 +89,44 @@ const Navigation = () => {
           </svg>
         </button>
 
-        
+        {/* Login or Profile Avatar Dropdown */}
+{user ? (
+  <div className="relative">
+    <img
+      src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
+      alt="User Avatar"
+      className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
+      onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown
+    />
+    {menuOpen && (
+      <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-500">
+        <p className="text-center text-lg font-medium mb-3 border-b-2 border-blue-500 pb-2">{user.username}</p>
+        <NavLink
+          to="/profile"
+          className="block py-2 text-center text-blue-400 hover:text-white transition-colors duration-200 border-b-2 border-blue-500 mb-2"
+        >
+          Profile
+        </NavLink>
+        <button
+          onClick={() => {
+            setMenuOpen(false);
+            window.location.href = "/logout"; // Implement your logout logic here
+          }}
+          className="w-full py-2 text-center text-red-400 hover:text-white transition-colors duration-200 border-t-2 border-blue-500 mt-2"
+        >
+          Logout
+        </button>
+      </div>
+    )}
+  </div>
+) : (
+  <button onClick={handleLogin} className="btn py-2 px-4 w-max">
+    Login
+  </button>
+)}
 
-        {/* Login Button */}
-        {user ? (
-          <img
-            src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
-            alt="User Avatar"
-            className="w-8 h-8 rounded-full border border-gray-500 cursor-pointer"
-          />
-        ) : (
-          <button onClick={handleLogin} className="btn py-2 px-3">
-            Login
-          </button>
-        )}
 
       </div>
-      
 
       {/* Links and Buttons */}
       <ul
@@ -152,20 +173,40 @@ const Navigation = () => {
           />
           <span>Add to Discord</span>
         </button>
-        
-
       </ul>
 
       {/* Desktop Buttons */}
       <div className="hidden md:flex gap-3">
-        
-      
         {user ? (
+          <div className="relative">
           <img
             src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
             alt="User Avatar"
-            className="w-10 h-10 rounded-full border border-gray-500 cursor-pointer"
+            className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
+            onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown
           />
+          {menuOpen && (
+            <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-500">
+              <p className="text-center text-lg font-medium mb-3 border-b-2 border-blue-500 pb-2">{user.username}</p>
+              <NavLink
+                to="/profile"
+                className="block py-2 text-center text-blue-400 hover:text-white transition-colors duration-200 border-b-2 border-blue-500 mb-2"
+              >
+                Profile
+              </NavLink>
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  window.location.href = "/logout"; // Implement your logout logic here
+                }}
+                className="w-full py-2 text-center text-red-400 hover:text-white transition-colors duration-200 border-t-2 border-blue-500 mt-2"
+              >
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+        
         ) : (
           <button onClick={handleLogin} className="btn py-2 px-4 w-max">
             Login
