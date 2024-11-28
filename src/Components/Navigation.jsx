@@ -6,6 +6,7 @@ import config from "../config.json";
 const Navigation = () => {
   const { DISCORD_ADD_BOT_LINK, LOGO_IMAGE_URL, DISCORD_AUTH_URL, DISCORD_AUTH_INFO } = config;
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpenProfile, setmenuOpenProfile] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [user, setUser] = useState(null);
   const menuRef = useRef(null);
@@ -90,42 +91,64 @@ const Navigation = () => {
         </button>
 
         {/* Login or Profile Avatar Dropdown */}
-{user ? (
-  <div className="relative">
-    <img
-      src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
-      alt="User Avatar"
-      className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
-      onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown
-    />
-    {menuOpen && (
-      <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-500">
-        <p className="text-center text-lg font-medium mb-3 border-b-2 border-blue-500 pb-2">{user.username}</p>
-        <NavLink
-          to="/profile"
-          className="block py-2 text-center text-blue-400 hover:text-white transition-colors duration-200 border-b-2 border-blue-500 mb-2"
-        >
-          Profile
-        </NavLink>
-        <button
-          onClick={() => {
-            setMenuOpen(false);
-            window.location.href = "/logout"; // Implement your logout logic here
-          }}
-          className="w-full py-2 text-center text-red-400 hover:text-white transition-colors duration-200 border-t-2 border-blue-500 mt-2"
-        >
-          Logout
-        </button>
-      </div>
-    )}
-  </div>
-) : (
-  <button onClick={handleLogin} className="btn py-2 px-4 w-max">
-    Login
-  </button>
-)}
-
-
+        {user ? (
+          <div className="relative">
+            <img
+              src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
+              onClick={() => setmenuOpenProfile(!menuOpenProfile)} // Toggle dropdown
+            />
+            {menuOpenProfile && (
+              <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-950">
+              <p className="text-center text-lg font-semibold border-b-2 border-blue-950 pb-2">{user.username}</p>
+              <NavLink
+                to="/account/profile"
+                className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950"
+              >
+                Profile
+              </NavLink>
+              <NavLink
+                to="/account/settings"
+                className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 mb-0.5"
+              >
+                Settings
+              </NavLink>
+              <NavLink
+                to="/dashboard"
+                className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 mb-0.5"
+              >
+                Your Servers
+              </NavLink>
+              <NavLink
+                to="/status"
+                className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-t-2 border-blue-950 mb-0.5"
+              >
+                Bot Status
+              </NavLink>
+              <NavLink
+                to="/support"
+                className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 -mb-2-1.5"
+              >
+                Support Server
+              </NavLink>
+              <button
+                onClick={() => {
+                  setmenuOpenProfile(false);
+                  window.location.href = "/logout"; // Implement your logout logic here
+                }}
+                className="w-full py-2 text-center text-red-400 hover:text-red-600 transition-colors duration-200 border-t-2 border-blue-950 mt-2"
+              >
+                Logout
+              </button>
+            </div>
+            )}
+          </div>
+        ) : (
+          <button onClick={handleLogin} className="btn py-2 px-4 w-max">
+            Login
+          </button>
+        )}
       </div>
 
       {/* Links and Buttons */}
@@ -179,34 +202,57 @@ const Navigation = () => {
       <div className="hidden md:flex gap-3">
         {user ? (
           <div className="relative">
-          <img
-            src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
-            alt="User Avatar"
-            className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
-            onClick={() => setMenuOpen(!menuOpen)} // Toggle dropdown
-          />
-          {menuOpen && (
-            <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-500">
-              <p className="text-center text-lg font-medium mb-3 border-b-2 border-blue-500 pb-2">{user.username}</p>
-              <NavLink
-                to="/profile"
-                className="block py-2 text-center text-blue-400 hover:text-white transition-colors duration-200 border-b-2 border-blue-500 mb-2"
-              >
-                Profile
-              </NavLink>
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  window.location.href = "/logout"; // Implement your logout logic here
-                }}
-                className="w-full py-2 text-center text-red-400 hover:text-white transition-colors duration-200 border-t-2 border-blue-500 mt-2"
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </div>
-        
+            <img
+              src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}
+              alt="User Avatar"
+              className="w-10 h-10 rounded-full border-2 border-gray-500 cursor-pointer transition-all hover:opacity-80"
+              onClick={() => setmenuOpenProfile(!menuOpenProfile)} // Toggle dropdown
+            />
+            {menuOpenProfile && (
+              <div className="absolute right-0 top-12 bg-gray-900 text-white rounded-lg shadow-lg w-48 py-3 px-4 border-2 border-blue-950">
+                <p className="text-center text-lg font-semibold border-b-2 border-blue-950 pb-2">{user.username}</p>
+                <NavLink
+                  to="/account/profile"
+                  className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950"
+                >
+                  Profile
+                </NavLink>
+                <NavLink
+                  to="/account/settings"
+                  className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 mb-0.5"
+                >
+                  Settings
+                </NavLink>
+                <NavLink
+                  to="/dashboard"
+                  className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 mb-0.5"
+                >
+                  Your Servers
+                </NavLink>
+                <NavLink
+                  to="/status"
+                  className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-t-2 border-blue-950 mb-0.5"
+                >
+                  Bot Status
+                </NavLink>
+                <NavLink
+                  to="/support"
+                  className="block py-2 text-center text-blue-300 hover:text-blue-600 transition-colors duration-200 border-blue-950 -mb-2-1.5"
+                >
+                  Support Server
+                </NavLink>
+                <button
+                  onClick={() => {
+                    setmenuOpenProfile(false);
+                    window.location.href = "/logout"; // Implement your logout logic here
+                  }}
+                  className="w-full py-2 text-center text-red-400 hover:text-red-600 transition-colors duration-200 border-t-2 border-blue-950 mt-2"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         ) : (
           <button onClick={handleLogin} className="btn py-2 px-4 w-max">
             Login
